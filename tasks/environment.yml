@@ -4,6 +4,7 @@
   command:
     '"{{ miniconda_prefix }}/bin/conda" env create -f "/tmp/{{ miniconda_env.name }}-environment.yml" {{ miniconda_env_create_opts }}'
   args:
+    chdir: /tmp
     creates: '{{ miniconda_prefix }}/envs/{{ miniconda_env.name }}'
   register: miniconda_env_create
   when: miniconda_env != '' and miniconda_env.name != 'root'
